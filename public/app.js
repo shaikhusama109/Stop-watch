@@ -24,13 +24,26 @@ function timer(){
     }
 }
 
+var startbtn = document.getElementById("start-btn")
+var pausebtn = document.getElementById("pause-btn")
+var resetbtn = document.getElementById("reset-btn")
+
+
+
 function start(){
     
     interval = setInterval(timer,10)
+    startbtn.disabled = true;
+    pausebtn.disabled = false;
+    resetbtn.disabled = false;
+    
 }
 
-function stop(){
+function pause(){
     clearInterval(interval)
+    pausebtn.disabled = true;
+    startbtn.disabled = false;
+    resetbtn.disabled = false;
 }
 
 function reset(){
@@ -40,6 +53,9 @@ function reset(){
     minHeading.innerHTML = min
     secHeading.innerHTML = sec
     msecHeading.innerHTML = msec
-    
-    clearInterval(interval)
+     clearInterval(interval)
+     resetbtn.disabled = true;
+     pausebtn.disabled = false;
+     startbtn.disabled = false
 }
+
